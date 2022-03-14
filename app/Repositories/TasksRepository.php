@@ -22,10 +22,7 @@ class TasksRepository implements TasksRepositoryInterface
     }
 
     public function allTasks(){
-        return TaskModel::where('developerId', 0)
-               ->orderBy('level','desc')
-               ->get()
-               ->toArray();
+        return $this->taskModel->allTasks();
     }
 
 }
