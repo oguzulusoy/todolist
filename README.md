@@ -1,64 +1,34 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# Açıklamalar
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+1. Görev İstenen Şekilde Tamamlanmıştır
 
-## Proje Laravel 8.0 da yazıldı
+  - Konsoldan komutla Provider1 ve Provider2 çalıştırılabilir durumdadır
+  - OOP kodlamaya dikkat edilmiştir.
+  - Tasarım deseni olarak API Providers için Adapter Pattern ve Task Model için Repositories kullanılmıştır.
+  - Veritabanı tablolarının kolayca oluşturulabilmesi için migrationslar oluturulmuştur.
+  - Projenin Docker ile çalıştırılabilmesi için gerekli işlemler uygulanmıştır
+  - En kısa sürede bitirme süresini hesaplayan algoritma geliştirilmiştir.
+  - Bu Case'de Laravel 8 kullanılmıştır.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+# Docker İle Projeyi Çalıştırma
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+1 - Proje ana dizininde iken __sudo docker-compose up__ komutu çalıştırılmalıdır.
+2 - Proje ana dizininde iken tabloların oluşturulması ve örnek datalarını yüklenmesi için __sudo docker-compose exec main php artisan migrate:fresh --seed__ komutu çalıştırılmalıdır.
+3 - Povider 1 Sağlayıcısını komutla çalıştırmak için __sudo docker-compose exec main php artisan insert:tasks --provider=Provider1__
+4 - Povider 2 Sağlayıcısını komutla çalıştırmak için __sudo docker-compose exec main php artisan insert:tasks --provider=Provider2__
 
-## Learning Laravel
+Yukarıdaki işlemler sonrasında proje ayağa kaldırılmış ve ihtiyaç duyulan tablo ve datalar yüklenmiş olacaktır.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+# Algoritma
+    /**
+    * Algoritmanın doğru çalışması için tasklar ve developerlar levellerine göre sıralı bir şekilde çekildi
+    * İlk önce gelen tasklarda minimum aynı eşitlikte olan leveller kullanıcıların levellerine göre yerleştirildi ve kuyruktan çıkarıldı
+    * Artık her kullanıcı kendi leveline göre 1 er saat mesgul bulunmakta ve hepsi aynı sürede işi bitirdiğini varsayıp yeteneklerine gore;
+    * Kuyrukta kalan diğer işler levellerine göre sırasıyla 5 4 3 level ki bu leveller yüksek olanlar yakınlık durumuna göre 5, 4 ve 3 levelli
+    * calisanlar arasında paylasildi 1 ve 2 nin yüksek katları olduklarından dolayı dahil edilmedi bu süre zarfında gecen süre hesaplandı
+    * Mininum harcanan süreyi cıkardım 5,4,3 levelleri için 
+    * 3,4,5 için Minimum harcanan saat kadar  1 ve 2 numaralı yetenekte ki çalışanlar kendi işlerini halledibilirler onlarda hesaplandı
+    * en son kalan 1 ve 2de ki işler daha cabuk bitmesi acısından 5,4 ve 3 arasında paylasıldı
+    * Minimum süre elde edildi
+    * */
