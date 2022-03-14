@@ -16,7 +16,9 @@
 1 - Proje ana dizininde iken __sudo docker-compose up__ komutu çalıştırılmalıdır.
 
 2 - Proje ana dizininde iken tabloların oluşturulması ve örnek datalarını yüklenmesi için __sudo docker-compose exec main php artisan migrate:fresh --seed__ komutu çalıştırılmalıdır.
+
 3 - Povider 1 Sağlayıcısını komutla çalıştırmak için __sudo docker-compose exec main php artisan insert:tasks --provider=Provider1__
+
 4 - Povider 2 Sağlayıcısını komutla çalıştırmak için __sudo docker-compose exec main php artisan insert:tasks --provider=Provider2__
 
 Yukarıdaki işlemler sonrasında proje ayağa kaldırılmış ve ihtiyaç duyulan tablo ve datalar yüklenmiş olacaktır.
