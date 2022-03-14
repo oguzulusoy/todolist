@@ -20,18 +20,11 @@ class TaskManager extends Controller
     }
     
     public function index(){
-        /**
-         * Algoritmanın doğru çalışması için tasklar ve developerlar levellerine göre sıralı bir şekilde çekildi
-         * İlk önce gelen tasklarda minimum aynı eşitlikte olan leveller kullanıcıların levellerine göre yerleştirildi ve kuyruktan çıkarıldı
-         * Artık her kullanıcı kendi leveline göre 1 er saat mesgul bulunmakta ve hepsi aynı sürede işi bitirdiğini varsayıp yeteneklerine gore;
-         * Kuyrukta kalan diğer işler levellerine göre sırasıyla 5 4 3 level ki bu leveller yüksek olanlar yakınlık durumuna göre 5, 4 ve 3 levelli
-         * calisanlar arasında paylasildi 1 ve 2 nin yüksek katları olduklarından dolayı dahil edilmedi bu süre zarfında gecen süre hesaplandı
-         * Mininum harcanan süreyi cıkardım 5,4,3 levelleri için 
-         * 3,4,5 için Minimum harcanan saat kadar  1 ve 2 numaralı yetenekte ki çalışanlar kendi işlerini halledibilirler onlarda hesaplandı
-         * en son kalan 1 ve 2 de ki işler daha cabuk bitmesi acısından 5,4 ve 3 arasında paylasıldı
-         * Minimum süre elde edildi
-         * */
         $tasks = $this->tasksRepository->allTasks();
+        
+        if(!$tasks){
+            return view('tasks');exit();
+        }
 
         $developers = new Developer();
         $developers = $developers->getDevelopers();
@@ -138,6 +131,6 @@ class TaskManager extends Controller
             'totalWeeks' => ceil($takesTasksAsHour / 45)
         );
 
-        return view('tasks',['developers' => $developers], $params);            
-    }
+        return view('tasks',['developers' => $developers], $params);           
+    } 
 }
