@@ -29,6 +29,6 @@ Yukarıdaki işlemler sonrasında proje ayağa kaldırılmış ve ihtiyaç duyul
     * calisanlar arasında paylasildi 1 ve 2 nin yüksek katları olduklarından dolayı dahil edilmedi bu süre zarfında gecen süre hesaplandı
     * Mininum harcanan süreyi cıkardım 5,4,3 levelleri için 
     * 3,4,5 için Minimum harcanan saat kadar  1 ve 2 numaralı yetenekte ki çalışanlar kendi işlerini halledibilirler onlarda hesaplandı
-    * en son kalan 1 ve 2 de ki işler daha cabuk bitmesi acısından 5,4 ve 3 arasında paylasıldı
+    * en son kalan 1 ve 2de ki işler daha cabuk bitmesi acısından 5,4 ve 3 arasında paylasıldı
     * Minimum süre elde edildi
     * */
