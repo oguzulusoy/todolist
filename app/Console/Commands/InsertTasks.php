@@ -57,7 +57,7 @@ class InsertTasks extends Command
     }
 
     /**
-     * Fetching currencies amounts from given provider.
+     * Fetching tasks from given provider.
      *
      * @param $provider
      * @return mixed
