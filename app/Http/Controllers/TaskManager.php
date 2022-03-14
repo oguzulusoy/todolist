@@ -25,7 +25,7 @@ class TaskManager extends Controller
     public function index(){
         $tasks = $this->tasksRepository->allTasks();
         if(!$tasks){
-            return view('tasks');exit();
+            return view('tasks');
         }
 
         $developers = $this->developersRepository->allDevelopers();
