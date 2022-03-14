@@ -5,7 +5,6 @@
   - Konsoldan komutla Provider1 ve Provider2 çalıştırılabilir durumdadır
   - OOP kodlamaya dikkat edilmiştir.
   - Tasarım deseni olarak API Providers için Adapter Pattern ve Task Model için Repositories kullanılmıştır.
-  - Veritabanı tablolarının kolayca oluşturulabilmesi için migrationslar oluturulmuştur.
   - Projenin Docker ile çalıştırılabilmesi için gerekli işlemler uygulanmıştır
   - En kısa sürede bitirme süresini hesaplayan algoritma geliştirilmiştir.
   - Bu Case'de Laravel 8 kullanılmıştır.
