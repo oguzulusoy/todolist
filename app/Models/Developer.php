@@ -10,7 +10,7 @@ class Developer extends Model
 {
     use HasFactory;
 
-    public function getDevelopers(){
+    public function allDevelopers(){
         return Developer::orderBy('level', 'desc')->get()->toArray();
     }
 }

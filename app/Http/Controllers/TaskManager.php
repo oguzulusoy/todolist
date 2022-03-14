@@ -8,26 +8,27 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
 use App\Repositories\TasksRepository;
+use App\Repositories\DevelopersRepository;
 
 class TaskManager extends Controller
 {
 
     private $tasksRepository;
+    private $developersRepository;
 
-    public function __construct(TasksRepository $tasksRepository)
+    public function __construct(TasksRepository $tasksRepository, DevelopersRepository $developersRepository)
     {
         $this->tasksRepository = $tasksRepository;
+        $this->developersRepository = $developersRepository;
     }
     
     public function index(){
         $tasks = $this->tasksRepository->allTasks();
-        
         if(!$tasks){
             return view('tasks');exit();
         }
 
-        $developers = new Developer();
-        $developers = $developers->getDevelopers();
+        $developers = $this->developersRepository->allDevelopers();
         
         $taskGroupLevel = [];
         

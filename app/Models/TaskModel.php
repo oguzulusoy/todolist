@@ -17,6 +17,13 @@ class TaskModel extends Model
     
     public function saveRecord($parameters){
 
-         $insertResult = DB::table('tasks')->insert($parameters);
+         $insertResult = TaskModel::insert($parameters);
     } 
+
+    public function allTasks(){
+        return TaskModel::where('developerId', 0)
+               ->orderBy('level','desc')
+               ->get()
+               ->toArray();
+    }
 }
