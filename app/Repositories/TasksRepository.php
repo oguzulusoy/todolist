@@ -9,7 +9,7 @@ use GuzzleHttp\Psr7\Request;
 class TasksRepository implements TasksRepositoryInterface
 {
 
-    private $ordersModel;
+    private $taskModel;
 
     public function __construct(TaskModel $taskModel)
     {
